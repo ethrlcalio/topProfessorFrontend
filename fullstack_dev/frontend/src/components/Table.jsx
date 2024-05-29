@@ -8,7 +8,7 @@ const Table = ({id}) => {
   const [schedule, setSchedule] = useState(null);
 
   const fetchData = async () => {
-    const response = await fetch(`http://127.0.0.1:8000/api/schedule-data/?studentID=${studentID}`);
+    const response = await fetch(`https://topprofessor.onrender.com/api/schedule-data/?studentID=${studentID}`);
     let data = await response.json();
     setSubjects(data);
   }
@@ -17,7 +17,7 @@ const Table = ({id}) => {
     if(subjects && subjects.length > 0){
       const dataArray = [];
       await Promise.all(subjects.map(async (subject) => {
-        const response = await fetch(`http://127.0.0.1:8000/api/class-data/?classID=${subject.classID}`);
+        const response = await fetch(`https://topprofessor.onrender.com/api/class-data/?classID=${subject.classID}`);
         const data = await response.json();
         dataArray.push(data);
       }));
@@ -26,13 +26,13 @@ const Table = ({id}) => {
   }
   const insertData = async () => {
     await Promise.all(classObj.map( async (class_obj) => {
-      const response = await fetch(`http://127.0.0.1:8000/api/professor-data/?professorID=${class_obj.professorID}`);
+      const response = await fetch(`https://topprofessor.onrender.com/api/professor-data/?professorID=${class_obj.professorID}`);
       const data = await response.json();
       class_obj.professorName = data.firstName + " " + data.lastName;
       
     }));
     await Promise.all(classObj.map( async (class_obj) => {
-      const response = await fetch(`http://127.0.0.1:8000/api/days-data/?classID=${class_obj.classID}`);
+      const response = await fetch(`https://topprofessor.onrender.com/api/days-data/?classID=${class_obj.classID}`);
       const data = await response.json();
       const daysArray = data.map(obj => obj.day.slice(0,2));
       class_obj.days = daysArray.toString();

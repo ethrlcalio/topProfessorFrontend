@@ -15,7 +15,7 @@ const List = () => {
   useEffect(() =>{
     if(!isCalculateDone){
       const fetchProfessors = async() => {
-        const response = await fetch(`http://127.0.0.1:8000/api/professors/`);
+        const response = await fetch(`https://topprofessor.onrender.com/api/professors/`);
         const data = await response.json();
         setProfessors(data);
       }
@@ -28,7 +28,7 @@ const List = () => {
       const fetchData = async () => {
         const dataArray = [];
         await Promise.all(professors.map(async (professor) => {
-          const response = await fetch(`http://127.0.0.1:8000/api/classes/`);
+          const response = await fetch(`https://topprofessor.onrender.com/api/classes/`);
           let data = await response.json();
           const filteredData  = data.filter(class_obj => class_obj.professorID == professor.professorID);
           dataArray.push(filteredData);
@@ -45,7 +45,7 @@ const List = () => {
       const fetchRatings = async () => {
         const dataArray = await Promise.all(classObj.map(async (classArray) => {
           const professorRatings = await Promise.all(classArray.map(async (class_obj) => {
-            const response = await fetch(`http://127.0.0.1:8000/api/rating-data/?classID=${class_obj.classID}`);
+            const response = await fetch(`https://topprofessor.onrender.com/api/rating-data/?classID=${class_obj.classID}`);
             return await response.json();
           }));
           return professorRatings;

@@ -30,7 +30,7 @@ const RatingModal = ({ isOpen, onClose, cID, pID }) => {
       return;
     }
     try{
-      const response = await fetch(`http://127.0.0.1:8000/api/save-rating-data/`, {
+      const response = await fetch(`https://topprofessor.onrender.com/api/save-rating-data/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/JSON',
@@ -76,7 +76,7 @@ const RatingModal = ({ isOpen, onClose, cID, pID }) => {
 
   useEffect(() => {
     async function fetchCsrfToken(){
-      const response = await fetch('http://127.0.0.1:8000/csrf_token/');
+      const response = await fetch('https://topprofessor.onrender.com/csrf_token/');
       const data = await response.json();
       setCsrfToken(data.csrfToken);
     }

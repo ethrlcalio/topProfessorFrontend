@@ -9,7 +9,7 @@ const EmptyBox = ({ratingKey, comment, commenter, professorID}) => {
   
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`http://127.0.0.1:8000/api/student-data/?studentID=${commenter}`)
+      const response = await fetch(`https://topprofessor.onrender.com/api/student-data/?studentID=${commenter}`)
       const data = await response.json();
       setStudent(data);
     }
@@ -20,7 +20,7 @@ const EmptyBox = ({ratingKey, comment, commenter, professorID}) => {
     if(ratingID){
         if(confirm("This will delete the comment & rating of the user")){
           try {
-            const response = await fetch(`http://127.0.0.1:8000/api/rating/${ratingID}/`, {
+            const response = await fetch(`https://topprofessor.onrender.com/api/rating/${ratingID}/`, {
               method: 'DELETE',
             });
             if (response.ok) {

@@ -29,7 +29,7 @@ const ProfessorProfile = () => {
   useEffect(() => {
     console.log(isHidden);
     const fetchData = async () => {
-      const response = await fetch(`http://127.0.0.1:8000/api/classes/`);
+      const response = await fetch(`https://topprofessor.onrender.com/api/classes/`);
       let data = await response.json();
       const filteredData  = data.filter(class_obj => class_obj.professorID == id);
       setClassObj(filteredData);
@@ -43,7 +43,7 @@ const ProfessorProfile = () => {
       const fetchRatings = async () => {
         const dataArray = [];
         await Promise.all(classObj.map(async (class_obj) => {
-          const response = await fetch(`http://127.0.0.1:8000/api/rating-data/?classID=${class_obj.classID}`);
+          const response = await fetch(`https://topprofessor.onrender.com/api/rating-data/?classID=${class_obj.classID}`);
           let data = await response.json();
           dataArray.push(data);
         }));

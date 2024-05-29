@@ -10,7 +10,7 @@ const FacultyProfile = ({id, ratingCount, commentCount}) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await  fetch(`http://127.0.0.1:8000/api/professor-data/?professorID=${professorID}`);
+      const response = await  fetch(`https://topprofessor.onrender.com/api/professor-data/?professorID=${professorID}`);
       const data = await response.json();
       setProfessorData(data);
     };

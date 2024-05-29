@@ -16,9 +16,9 @@ const BarGraph = ({type}) => {
         const fetchData = async() => {
             try{
                 const [professorsRes, classesRes, ratingsRes] = await Promise.all([
-                    fetch(`http://127.0.0.1:8000/api/professors/`),
-                    fetch(`http://127.0.0.1:8000/api/classes/`),
-                    fetch(`http://127.0.0.1:8000/api/ratings/`),
+                    fetch(`https://topprofessor.onrender.com/api/professors/`),
+                    fetch(`https://topprofessor.onrender.com/api/classes/`),
+                    fetch(`https://topprofessor.onrender.com/api/ratings/`),
                 ]);
                 const [professorsData, classesData, ratingsData] = await Promise.all([
                     professorsRes.json(),
