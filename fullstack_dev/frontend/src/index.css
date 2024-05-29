@@ -1,0 +1,38 @@
+/* index.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add custom styles for LoginModal */
+.login-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure modal overlay is above other elements */
+}
+
+.login-modal {
+  background-color: white;
+  padding: 20px; /* Increase padding for more space inside the modal */
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  width: 80%; /* Adjust the width of the modal */
+  max-width: 400px; /* Set a maximum width to prevent it from becoming too wide */
+  height: 50%; /* Adjust the height of the modal */
+  z-index: 1001; /* Ensure modal is above modal overlay */
+}
+
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
