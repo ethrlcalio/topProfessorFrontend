@@ -24,14 +24,14 @@ jobs:
 
       - name: Build project
         run: |
-          cd topProfessorFrontend/frontend
+          cd topProfessorFrontend/fullstack_dev/frontend
           npm run build
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v3
         with:
           name: production-files
-          path: ./topProfessorFrontend/frontend/dist
+          path: ./topProfessorFrontend/fullstack_dev/frontend/dist
 
   deploy:
     name: Deploy
