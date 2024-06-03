@@ -24,6 +24,8 @@ jobs:
           npm install
           npm install vite --save-dev
           npm install @vitejs/plugin-react --save-dev
+          npm install tailwindcss --save-dev
+
 
       - name: Build project
         run: |
