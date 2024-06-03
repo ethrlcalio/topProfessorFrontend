@@ -24,7 +24,7 @@ jobs:
 
       - name: Build project
         run: |
-          cd topProfessorFrontend/fullstack_dev/frontend
+          cd fullstack_dev/frontend
           npm run build
 
       - name: Upload production-ready build files
