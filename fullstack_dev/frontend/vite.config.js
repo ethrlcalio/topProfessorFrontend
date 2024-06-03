@@ -6,5 +6,5 @@ export default defineConfig({
   build: {
     outDir: 'dist'
   },
-  base: '/topProfessorFrontend/' // This is important for GitHub Pages
+  base: './' // This is important for GitHub Pages
 })
